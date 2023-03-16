@@ -1,6 +1,9 @@
 import 'package:carezone/models/advice.dart';
 import 'package:carezone/ui/advicescreen/more_advice_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -19,6 +22,22 @@ class Mainpage extends StatefulWidget {
 
 class MainpageState extends State<Mainpage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+ @override
+  void initState() {
+  x();
+    super.initState();
+  }
+
+String? Y;
+
+  x() async{
+ final y= await FirebaseFirestore.instance.collection('users').doc( FirebaseAuth.instance.currentUser!.uid).get();
+ print(y.data()!['text' ]);
+ setState(() {
+   Y= y.data()!['text' ];
+ });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +54,14 @@ class MainpageState extends State<Mainpage> {
       message = 'Good Evening';
     }
 
+    // final docRef = db.collection("users").doc();
+    // docRef.get().then(
+    //       (DocumentSnapshot doc) {
+    //     final data = doc.data() as Map<String, dynamic>;
+    //     print(data);
+    //   },
+    //   onError: (e) => print("Error getting document: $e"),
+    // );
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Colors.white,
@@ -66,7 +93,7 @@ class MainpageState extends State<Mainpage> {
                     alignment: Alignment.centerLeft,
                     padding: const EdgeInsets.only(left: 20, bottom: 10),
                     child: Text(
-                      'Hello',
+                      'Hello $Y',
                       style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,

@@ -24,7 +24,7 @@ class _AppdrawerState extends State<Appdrawer> {
           AppBar(
             backgroundColor: Colors.grey,
             title: Text(
-              'Hello Friend !',
+              'Hello',
               style: getRegularStyle(
                   color: ColorManager.white, fontSize: AppSize.s18),
             ),

@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   get: ^4.3.8
-  flutter_local_notifications: ^8.2.0
+  flutter_local_notifications: ^13.0.0
   flutter_native_timezone: ^2.0.0
   intl: ^0.17.0
   google_fonts: ^4.0.3
@@ -31,6 +31,11 @@ dependencies:
   carousel_slider:
   flutter_swiper_null_safety:
   image_picker: ^0.8.6+3
+  sizer: ^2.0.15
+  provider: ^6.0.5
+  shared_preferences:
+  lottie:
+  tflite: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +81,16 @@ flutter:
     - images/moreadvicethree.jpg
     - images/moreadvicefour.jpg
     - images/moreadvicefive.jpg
+    - images/bottle.svg
+    - images/pill.svg
+    - images/pill.svg
+    - images/syringe.svg
+    - images/tablet.svg
+    - images/animations/SuccessCheck.flr
+    - images/model_unquant.tflite
+    - images/labels.txt
+    - images/121988-ai-animation.json
+    - images/100943-perulogy.json
 
 dependency_overrides:
   firebase_core_platform_interface: 4.5.1

@@ -43,6 +43,7 @@ class _AuthFormState extends State<AuthForm> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+
               TextFormField(
                   key: const ValueKey('email'),
                   validator: (value) {

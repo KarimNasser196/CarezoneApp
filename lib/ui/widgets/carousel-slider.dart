@@ -1,4 +1,6 @@
 
+import 'package:carezone/main.dart';
+import 'package:carezone/ui/disease_diagnosis_screen/ddd.dart';
 import 'package:carezone/ui/disease_diagnosis_screen/disease_diagnosis_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 import '../../models/banner.dart';
-import '../pages/screens/home_page.dart';
+import '../medicine_reminder/main.dart';
+
 
 class Carouselslider extends StatelessWidget {
   const Carouselslider({super.key});
@@ -40,11 +43,11 @@ class Carouselslider extends StatelessWidget {
                 index == 0
                     ? Navigator.push(context,
                         MaterialPageRoute(builder: (BuildContext context) {
-                        return const HomePage();
+                        return MainReminderScreen();
                       }))
                     : Navigator.push(context,
                         MaterialPageRoute(builder: (BuildContext context) {
-                        return const DiseaseDiagosis();
+                        return Ai();
                       }));
               },
               child: Stack(

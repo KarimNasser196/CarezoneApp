@@ -40,6 +40,7 @@ class _AuthscreenState extends State<Authscreen> {
               .collection('users')
               .doc(value.user!.uid)
               .set({'text': username, 'password': password});
+          
           return Navigator.pushReplacement(
               context, MaterialPageRoute(builder: ((ctx) => const Mainpage())));
         });

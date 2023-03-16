@@ -1,11 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
   package="com.example.todo">
-  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <application
-    android:label="care"
+    tools:replace="android:label"
+    android:label="CareZone"
     android:name="${applicationName}"
     android:icon="@mipmap/ic_launcher">
     <activity
+      android:exported="true"
       android:name=".MainActivity"
       android:launchMode="singleTop"
       android:theme="@style/LaunchTheme"
@@ -36,11 +39,12 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <receiver
+    <!-- <receiver
       android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
-      android:exported="true">
+      android:exported="true"
+      replace="android:exported">
 
-    </receiver>
+    </receiver> -->
     <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
     <meta-data
