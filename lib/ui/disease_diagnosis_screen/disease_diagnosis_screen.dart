@@ -1,12 +1,10 @@
 import 'dart:io';
-import 'package:carezone/ui/disease_diagnosis_screen/ddd.dart';
 import 'package:carezone/ui/resourses/Color_manager.dart';
 import 'package:carezone/ui/resourses/styles_manager.dart';
 import 'package:carezone/ui/resourses/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
@@ -14,22 +12,20 @@ import 'package:tflite/tflite.dart';
 
 class DiseaseDiagosis extends StatefulWidget {
   const DiseaseDiagosis({super.key});
-    @override
-
-
   @override
   State<DiseaseDiagosis> createState() => _DiseaseDiagosisState();
 }
 
 class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
-
-@override
+  @override
   void initState() {
-  loadMLModel();
+    loadMLModel();
     super.initState();
   }
+
   File? image;
   List? _output;
+  bool _loading = true;
   Future pickImage(ImageSource src) async {
     try {
       final image = await ImagePicker().pickImage(source: src);
@@ -37,8 +33,7 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
       final imageTemp = File(image.path);
       setState(() => this.image = imageTemp);
 
-      runModelOnImage(File(image.path));
-
+      await runModelOnImage(File(image.path));
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }
@@ -52,8 +47,8 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
         imageStd: 127.5,
         threshold: 0.5);
     setState(() {
-
       _output = output!;
+      _loading = false;
     });
   }
 
@@ -62,13 +57,19 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
         model: 'images/model_unquant.tflite', labels: 'images/labels.txt');
   }
 
+  @override
+  void dispose() {
+    Tflite.close();
+    super.dispose();
+  }
 
-
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar( title: Text("Brain Tumor Detection",style: TextStyle(color: Colors.black87,fontSize: AppSize.s20)),
+      appBar: AppBar(
+        title: const Text('Brain Tumor Detection',
+            style: TextStyle(color: Colors.black87, fontSize: AppSize.s20)),
         leading: IconButton(
           onPressed: () => Get.back(),
           icon: Icon(
@@ -84,15 +85,11 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
       ),
       body: SingleChildScrollView(
         child: Column(
-
           children: [
             Container(
-                margin: EdgeInsets.symmetric(horizontal: AppSize.s4),
+                margin: const EdgeInsets.symmetric(horizontal: AppSize.s4),
                 width: MediaQuery.of(context).size.width,
                 height: 170,
-
-
-
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -146,18 +143,26 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
                                     fontWeight: FontWeight.normal)),
                             onPressed: () {
                               pickImage(ImageSource.camera);
-
                             }),
                       ],
                     ),
                   ],
                 )),
-
-            image == null ?  Center(child:Lottie.asset('images/100943-perulogy.json')) : Image.file(image!),
-            SizedBox(
-              height:AppSize.s20,
+            _loading
+                ? Center(child: Lottie.asset('images/100943-perulogy.json'))
+                : Image.file(image!),
+            const SizedBox(
+              height: AppSize.s20,
             ),
-            _output == null ? Text("") : Container(color: Colors.grey[200],child: Text("${_output![0]["label"]}",style: getRegularStyle(fontSize: AppSize.s32,color: Colors.black87),)),
+            _output == null
+                ? const Text('')
+                : Container(
+                    color: Colors.grey[200],
+                    child: Text(
+                      "${_output![0]["label"]}",
+                      style: getRegularStyle(
+                          fontSize: AppSize.s32, color: Colors.black87),
+                    )),
           ],
         ),
       ),

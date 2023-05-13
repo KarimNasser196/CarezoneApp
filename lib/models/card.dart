@@ -7,12 +7,13 @@ class CardModel {
 }
 
 List<CardModel> cards = [
-  CardModel("Fever treatment for children: a doctor's advice",
-      'images/image-medical.jpg'),
+  CardModel('What is a brain tumor and its types?',
+      'images/card3.jpg'),
   CardModel(
-      'How is pneumonia treated?',
-      'images/doctor-consulting-with-patient-vector.jpg'
+      'What causes brain tumors?And his treatment',
+      'images/333jpg.jpg'
       ),
-  CardModel('Could it be gallstones?', 'images/three.jpg'),
+  CardModel('Getting better after treatment for brain tumours', 'images/2222.jpg'),
+  CardModel('tests will be done to diagnose a brain tumor', 'images/image-medical.jpg'),
 
 ];

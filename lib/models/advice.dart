@@ -1,78 +1,161 @@
 List<Map<String, String>> advice = [
   {
-    'Title': "Fever treatment for children: a doctor's advice ",
-    'description':
-        """Treating a fever with paracetamol and ibuprofen.\n\nIt is important to know the reason for the high temperature - such as a cold or viral illness. If you have already seen a doctor and have a diagnosis then you can manage fever and symptoms at home.
+    'Title':'What is a brain tumor and its types?',
+    'description':'''
+ What is a brain tumor?
+    
+A brain tumor is an abnormal growth or mass of cells in or around your brain. Together, spinal tumors and brain tumors are called central nervous system (CNS) tumors.
 
-If children aren't unwell or in pain you don't have to use paracetamol or ibuprofen - but often it will bring them comfort.
+Brain tumors can be malignant (cancerous) or benign (noncancerous). Some tumors grow quickly, while others are slow growing.
 
-Paracetamol\n
-Paracetamol is a good first-line medicine to help children feel better. It is usually fine to give to anyone and in the doses stated on the bottle. For those born prematurely, you should have already been given advice on the right doses for an infection. Always check if you are unsure.
+Only about one-third of brain tumors are cancerous. But whether they’re cancerous or not, brain tumors can impact brain function and your health if they grow large enough to press on surrounding nerves, blood vessels and tissue.
 
-The correct dose will be according to the age group. You can only give paracetamol four times a day (a 24-hour period) and each dose has to be at least four hours apart.
+Tumors that develop in your brain are called primary tumors. Tumors that spread to your brain after forming in a different part of your body are called secondary tumors, or metastatic brain tumors. This article focuses on primary brain tumors.
 
-Tips to keep you right:
-One thing I’ve found as a parent - usually when sleep-deprived - is that I forget what I have given at what time. Recent studies have shown that parents are at risk of accidentally overdosing or underdosing their children because they forget when and how much they have given.\n
+What are the types of brain tumors?
 
-I find that writing it down helps, and I also send a text to my partner, so they are aware of what and when I am giving each medicine. For example - I gave my unwell toddler Calpol - which is a paracetamol - at 12 pm and ibuprofen at 3 pm. At 6 pm his fever was creeping up so I knew I could give him Calpol safely.\n
-Using a syringe to measure doses helps to give out the exact amounts needed without wastage.\n
-Loose clothing - I tend to let them run around in their underwear and a loose tee shirt. It keeps them cooler and more comfortable - avoid cold sponges and direct cooling from fans. Lowering a temperature too quickly can be problematic too.\n\n\n
+Researchers have identified more than 150 different brain tumors.
 
-""",
-    'Image': 'images/one.jpg'
+Healthcare providers categorize primary tumors as glial (composed of glial cells in your brain) or non-glial (developed on or in the structures of your brain, including nerves, blood vessels and glands) and benign (noncancerous) or malignant (cancerous).
+
+Many types of brain tumors can also form in your spinal cord or column.
+
+Usually benign brain tumors
+Types of brain tumors that are usually benign include:
+
+Chordomas: These slow-growing tumors typically begin at the base of your skull and the bottom part of your spine. They’re mostly benign.
+Craniopharyngiomas: These tumors usually arise from a portion of your pituitary gland. They’re difficult tumors to remove because of their location near critical structures deep in your brain.
+Gangliocytomas, gangliomas and anaplastic gangliogliomas: These are rare tumors that form in neurons (nerve cells).
+Glomus jugulare: These tumors are typically located just under the base of your skull at the top of your jugular vein (neck vein). They’re the most common form of glomus tumor.
+Meningiomas: These are the most common type of primary brain tumors. Meningiomas typically develop slowly. They form in the meninges, the layers of tissue that protect your brain and spinal cord. In rare cases, a meningioma can be malignant.
+Pineocytomas: These slow-growing tumors form in your pineal gland, which is located deep in your brain and secretes the hormone melatonin.
+Pituitary adenomas: These tumors form in your pituitary gland, which is located at the base of your brain. Your pituitary gland makes and controls hormones in your body. Pituitary adenomas are usually slow growing and they may release excess pituitary hormones.
+Schwannomas: These are common benign brain tumors in adults. They develop from the Schwann cells in your peripheral nervous system or cranial nerves. Schwann cells assist the conduction of nerve impulses. Acoustic neuromas are the most common schwannoma. These tumors occur on your vestibular nerve (the nerve that leads from your inner ear to your brain).
+Cancerous (malignant) brain tumors
+Approximately 78% of cancerous primary brain tumors are gliomas. These tumors develop in glial cells, which surround and assist nerve cells. Types of gliomas include:
+
+Astrocytoma: These tumors are the most common type of glioma. They form in the star-shaped glial cells called astrocytes. They can form in many parts of your brain, but most commonly occur in your cerebrum.
+Ependymomas: These tumors often occur near the ventricles in your brain. Ependymomas develop from ependymal cells (called radial glial cells).
+Glioblastoma (GBM): These tumors form in glial cells called astrocytes. GBMs are the fastest-growing astrocytoma.
+Oligodendroglioma: These uncommon tumors begin in cells that create myelin (a layer of insulation around nerves in your brain).
+Medulloblastoma is another type of cancerous brain tumor. These tumors are fast growing and form at the base of your skull. They’re the most common cancerous brain tumor in children.
+    ''',
+    'Image': 'images/card3.jpg'
   },
   {
-    'Title': 'How is pneumonia treated?',
-    'description':
-        """Pneumonia is an inflammation of the lung which is usually caused by an infection. Pneumonia varies a lot in severity with many people making a full recovery, but in some cases it can be life-threatening.
-                  
-                  
-                  How to treat pneumonia
-Antibiotics
-Most cases of pneumonia are caused by bacterial infection which can be treated effectively with antibiotics. They can be taken as tablets, capsules, or liquids. In more severe cases of pneumonia, they may be given intravenously - IV through a drip into the veins.
+    'Title':'What causes brain tumors?And his treatment',
+    'description':'''
+What causes brain tumors?
+Researchers know brain tumors develop when certain genes on the chromosomes of a cell are damaged and no longer function properly, but they aren’t sure why this happens. Your DNA in your chromosomes tells cells throughout your body what to do — it tells them when to grow, when to divide or multiply and/or when to die.
 
-The choice of antibiotic depends on how severe the pneumonia is, what type of pneumonia it is, and what types of bacteria are found in the local area - including patterns of antibiotic resistance.
+When brain cell DNA changes, it gives your brain cells new instructions. Your body develops abnormal brain cells that grow and multiply faster than normal and sometimes live longer than normal. When that happens, the ever-growing crowd of abnormal cells takes over space in your brain.
 
-In the UK, antibiotics such as amoxicillin, clarithromycin and doxycycline are often used for community-acquired pneumonia. Co-amoxiclav can be used as second-line - if the first antibiotic does not work - or if the pneumonia is associated with aspiration. Different antibiotics are used to treat hospital-acquired pneumonia or ventilator-associated pneumonia because those conditions are caused by different bacteria which require other drugs.
+In some cases, a person may be born with changes in one or more of these genes. Environmental factors, such as exposure to large amounts of radiation from X-rays or previous cancer treatment, may then lead to further damage.
 
-Antivirals
-These medicines can be used for viral pneumonia, depending on the exact virus that is causing the infection. Examples include oseltamivir (Tamiflu®) for the flu (influenza) virus and nirmatrelvir/ritonavir (Paxlovid) for COVID-19 (SARS-CoV-2) virus.
+In other cases, the environmental injury to the genes may be the only cause.
 
-Oxygen
-If pneumonia causes oxygen levels in the blood to drop, extra oxygen can be given. This can be given through oxygen masks or small tubes that sit just inside the nose. This needs to be given in hospital.
+There are a few rare, inherited (passed down from parent to child) genetic syndromes that are associated with brain tumors, including:
 
-Fluids
-If people are dehydrated or have signs of sepsis, fluids can be given using a drip for hydration, and to treat dangerously low blood pressure. These need to be given in hospital.
+Neurofibromatosis type 1 (NF1 gene).
+Neurofibromatosis type 2 (NF2 gene).
+Turcot syndrome (APC gene).
+Gorlin syndrome (PTCH gene).
+Tuberous sclerosis complex (TSC1 and TSC2 genes).
+Li-Fraumeni syndrome (TP53 gene).
+Only about 5% to 10% of people with brain tumors have a family history of a brain tumor.
 
-Painkillers such as paracetamol or ibuprofen
-Paracetamol or ibuprofen can treat symptoms of pain and fever from pneumonia.
 
-Breathing support - ventilation
-Sometimes, in severe cases of pneumonia, the lungs become badly affected and can't get enough oxygen into the body. In these cases, breathing machines (ventilators) can be used to support the lungs. These include breathing masks that are used to support breathing whilst awake (non-invasive ventilation) and ventilation using a breathing tube on a ventilator - whilst unconscious. Breathing support is given in special hospital wards, called high-dependency units or intensive care units. Generally, those admitted into these units are very unwell.
+How are brain tumors treated?
 
-Chest physiotherapy
-Chest physiotherapy, from specialist therapists, can help treat the symptoms of pneumonia and may improve recovery.
-                  """,
-    'Image': 'images/two.jpg'
+Brain tumor treatment depends on several factors, including:
+The tumor’s location, size and type.
+The number of tumors.
+Your age.
+Your overall health.
+Benign (noncancerous) brain tumors can usually be successfully removed with surgery and don’t usually grow back. It often depends on if your neurosurgeon can safely remove all of the tumor.
+
+Treatments that are fairly well tolerated by the brains of adults, such as radiation therapy, may prevent the normal development of a child’s brain, especially in children younger than age five.
+
+Healthcare providers often use a combination of therapies to treat a tumor. Your treatment options might include:
+
+Brain surgery (craniotomy): When possible, neurosurgeons remove the tumor. They work very carefully, sometimes performing surgery when you’re awake (you won’t feel pain), to minimize damage to functional areas of your brain.
+Radiation therapy: High doses of X-rays destroy brain tumor cells or shrink the tumor in this type of treatment.
+Radiosurgery: This is a type of radiation therapy that uses very focused beams of radiation (gamma rays or proton beams) to destroy a tumor. It’s not actually surgery because it doesn’t require an incision (cut).
+Brachytherapy: This is a form of radiation therapy. It involves surgically placing radioactive seeds, capsules or other implants directly in or near the cancerous tumor.
+Chemotherapy: This therapy consists of anticancer drugs that kill cancer cells in your brain and throughout your body. You might receive chemotherapy through an injection into a vein or take it as a pill. Your healthcare provider may recommend chemotherapy after surgery to kill any cancer cells left behind or to prevent remaining tumor cells from growing.
+Immunotherapy: Immunotherapy, also called biological therapy, is a type of treatment that uses your body’s immune system to fight cancer. The therapy mainly consists of stimulating your immune system to help it do its job more effectively.
+Targeted therapy: With this treatment, drugs target specific features in cancer cells without harming healthy cells. Your healthcare provider may recommend targeted therapy if you have trouble tolerating the side effects of chemotherapy, such as fatigue and nausea.
+Watchful waiting/active surveillance: If you have a brain tumor that’s very small and isn’t causing symptoms, your healthcare provider may recommend closely monitoring the tumor for signs of growth with regular testing.
+Other treatments that help with symptoms caused by brain tumors include:
+
+Shunts: If the tumor causes pressure within your skull to increase, you may need to have a shunt (a thin piece of tubing) surgically placed in your brain to drain excess cerebrospinal fluid.
+Drugs such as mannitol and corticosteroids: These medications can help reduce pressure within your skull. They reduce swelling around the tumor.
+Palliative care: This is a specialized form of care that provides symptom relief, comfort and support to people living with serious illnesses. It also provides support to caregivers and those impacted by a loved one’s condition.
+    ''',
+    'Image': 'images/card2.jpg'
+
   },
   {
-    'Title': 'Could it be gallstones?',
-    'description': """What are gallstones?
-Gallstones form in your gallbladder. This small pear-shaped pouch, just 8 cm long, sits tucked away under your liver, on the upper right side of your tummy. It acts as a storage pouch for a yellow-greenish liquid called bile, produced by your liver. Bile has two main functions - breaking down food (especially fatty food) you've eaten and carrying away waste from your liver.
+    'Title': 'Getting better after treatment for brain tumours',
+    'description':
+    """Having treatment for a brain tumour is often life changing. Some people make a full recovery and are able to go back to work. How long it takes for you to recover depends on your individual situation. Everyone takes a different amount of time to recover. 
 
-When you eat, your stomach produces a hormone which stimulates the muscles in the wall of the gallbladder. These contract and release bile, which passes down a tube called the bile duct connecting your gallbladder to your intestine. Here it gets to work digesting fat, allowing it to be absorbed from your gut into your bloodstream.
+Unfortunately, some people aren't able to get better and need care and support for the rest of their lives. 
+Problems you might have after treatment
+You might have problems for some time after you finish treatment for a brain tumour. The problems you might have include: 
 
-But bile contains several substances, including bile salts, the pigment bilirubin and cholesterol. If there's an imbalance in the amount of any of these , tiny stone-like deposits can form-gallstones. Then these gallstones can gradually increase in size.
+weakness on one side of your body
+difficulty walking or moving
+difficulty with speech or understanding
+seizures (fits)
+severe tiredness (fatigue)
+problems with your vision and hearing
+personality changes
+memory problems
+The problems you have depend on where in your brain the tumour was. In time, another area of your brain can learn to take over some of the functions that were affected by your tumour, or its treatment. You may or may not get completely back to how you were before your brain tumour. But help is available for you. 
 
-Gallstones treatment
-Treatment for gallstones depends on the complications they have caused. Only a few people with gallstones, who have never had problems, develop complications each year. When treating gallstones, your doctor is likely to recommend that you try and lose excess weight - while avoiding crash diets or rapid weight loss - and leave them alone unless you get pain. The same may apply if you just have mild, infrequent pain.
+Who can help
+There are various healthcare professionals who can help you recover from a brain tumour. This might include:
 
-If you have acute cholecystitis or biliary colic, you may need admission to hospital for strong pain relief and antibiotics if there's also an infection. After this, you should be offered surgery to remove your gallbladder - known as a cholecystectomy- you can lead a perfectly normal life without one. These days, most people can have keyhole surgery under general anaesthetic. They can usually go home the same day, with full recovery within a couple of weeks.
+a physiotherapist to help you with moving  
+an occupational therapist to see what help you need with everyday activities such as dressing
+a speech and language therapist to help with speech and swallowing
+a social worker who can arrange for you to have help with shopping and cleaning
+dietitians to help with your diet
+a GP practice nurse (district nurse) who can help with practical things such as wound care
+a pharmacist who can help with your medicines and dosette boxes
+Your doctor or specialist nurse may be able to refer you to these services. Don't be afraid to ask for this if it is not arranged automatically.  
 
-After a gallbladder removal, some people may need to avoid spicy or fatty foods to prevent bloating or diarrhoea.
+Going back to work
+Some people make a full recovery from their brain tumour. Others will have some long term side effects. It isn't possible to tell beforehand how things will work out. 
+
+Whether you get completely back to normal and how soon depends on:
+
+the type of tumour you have
+how big the tumour is and where it is
+the treatment you had
+your particular job 
+Some people have difficulty concentrating or remembering details after having treatment for a brain tumour. You might not be able to go back to the same level you were before your diagnosis if you had a job where your mental skills and abilities were very important. This can be very difficult to accept and adjust to. 
+
+You might not be able to go back to your job straight away if you operate heavy machinery. You should talk to your occupational health department if you have one. If not, talk to your manager. 
+
+If necessary, some employers can arrange for you to take on another role until you are better. Ask about this possibility if it is not offered. You might be able to go back to work part time. Then you can go back to your regular hours once you have got your strength back.  
+
+It might be helpful to contact a benefits advisor at your local hospital if you can't go back to the job you did before. Or contact your local Citizens Advice Bureau.
 """,
-    'Image': 'images/three.jpg'
-  }
+    'Image': 'images/2222.jpg'
+  },
+  {
+    'Title':'tests will be done to diagnose a brain tumor',
+    'Image': 'images/image-medical.jpg',
+    'description':'''Healthcare providers use several tests to diagnose a brain tumor, including:
+
+Brain MRI or CT scan: Magnetic resonance imaging (MRI) is the best imaging test for identifying brain tumors. Computed tomography (CT) is a good alternative if you’re unable to undergo an MRI. Before these tests, a substance that makes the tumor easier to see called a contrast agent is injected into one of your veins. These tests can show the tumor’s size and exact position in specific detail. Your healthcare provider may also look at other parts of your body, such as your lungs, colon or breasts, to see if the tumor has spread.
+Biopsy: Healthcare providers usually need to do a biopsy of the tumor (removal of a sample of the tumor for examination under a microscope) to identify the type of tumor and if it’s cancerous. A neurosurgeon may perform a biopsy during surgery in which they remove all or part of the tumor. If the tumor is difficult to reach, they may perform a stereotactic biopsy, which involves creating a small hole in your skull and using a needle to take a sample of tissue from the tumor.
+Spinal tap (lumbar puncture): For this procedure, your healthcare provider uses a small needle to remove cerebrospinal fluid (CSF) from around your spine. A laboratory examines this fluid to look for cancer cells. Healthcare providers use this procedure when they suspect that the tumor has invaded the layers of tissues that cover your brain (meninges).
+Specialized tests: Certain tests can sometimes help with the diagnosis. For example, your healthcare provider may order tests that check your blood and cerebrospinal fluid for substances that certain tumors release called tumor markers. They can also test for gene abnormalities that are characteristic of certain tumors.
+    '''
+  },
 ];
 List<Map<String, String>> moreadvice = [
   {
@@ -109,7 +192,7 @@ Obesity is a risk factor for advanced prostate cancer.
 Diet is possibly a risk factor. As with other cancers, a diet high in fats and low in fruit and vegetables may increase the risk.
 Exposure to the metal cadmium may be a risk.
 ''',
-    'Image': 'images/moreadvicetwo.jpg'
+    'Image': 'images/two.jpg'
   },
   {
     'Title': 'How healthy is your heart?',

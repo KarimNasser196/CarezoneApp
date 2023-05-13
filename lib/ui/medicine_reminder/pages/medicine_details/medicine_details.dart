@@ -2,12 +2,8 @@ import 'package:carezone/ui/resourses/styles_manager.dart';
 import 'package:carezone/ui/resourses/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../resourses/Color_manager.dart';
 import '../../constants.dart';
 import '../../global_bloc.dart';
@@ -24,7 +20,7 @@ class MedicineDetails extends StatefulWidget {
 class _MedicineDetailsState extends State<MedicineDetails> {
   @override
   Widget build(BuildContext context) {
-    final GlobalBloc _globalBloc = Provider.of<GlobalBloc>(context);
+    final GlobalBloc globalBloc = Provider.of<GlobalBloc>(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -60,7 +56,7 @@ class _MedicineDetailsState extends State<MedicineDetails> {
                 onPressed: () {
                   //open alert dialog box,+global bloc, later
                   //cool its working
-                  openAlertBox(context, _globalBloc);
+                  openAlertBox(context, globalBloc);
                 },
                 child: Text(
                   'Delete',
@@ -259,7 +255,7 @@ class ExtendedSection extends StatelessWidget {
         ExtendedInfoTab(
           fieldTitle: 'Dose Interval',
           fieldInfo:
-              'Every ${medicine!.interval} hours   | ${medicine!.interval == 24 ? "One time a day" : "${(24 / medicine!.interval!).floor()} times a day"}',
+              'Every ${medicine!.interval} hours|${medicine!.interval == 24 ? "One time a day" : "${(24 / medicine!.interval!).floor()} times a day"}',
         ),
         ExtendedInfoTab(
           fieldTitle: 'Start Time',

@@ -1,8 +1,8 @@
+import 'package:carezone/ui/auth/restpasswordscreen.dart';
 import 'package:carezone/ui/resourses/styles_manager.dart';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../resourses/values_manager.dart';
 
 class AuthForm extends StatefulWidget {
@@ -22,7 +22,7 @@ class _AuthFormState extends State<AuthForm> {
   String _password = '';
   String _username = '';
 
-  void _submit() async {
+  void _submit() {
     final isvaild = _formkey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
@@ -43,7 +43,6 @@ class _AuthFormState extends State<AuthForm> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-
               TextFormField(
                   key: const ValueKey('email'),
                   validator: (value) {
@@ -98,7 +97,7 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                   ),
                 ),
-              const SizedBox(height: AppSize.s8),
+              const SizedBox(height: AppSize.s4),
               TextFormField(
                 key: const ValueKey('password'),
                 validator: (value) {
@@ -128,6 +127,28 @@ class _AuthFormState extends State<AuthForm> {
                 keyboardType: TextInputType.visiblePassword,
               ),
               const SizedBox(
+                height: 10,
+              ),
+              if (_islogin)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child:
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => const RestPasswordScreen());
+                      },
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                            color: Colors.teal,
+                            fontWeight: FontWeight.bold,
+                            fontSize: AppSize.s16),
+                      ),
+                    )
+                  ]),
+                ),
+              const SizedBox(
                 height: 15,
               ),
               if (widget._isloading) const CircularProgressIndicator(),
@@ -146,7 +167,7 @@ class _AuthFormState extends State<AuthForm> {
                       style: getBoldStyle(color: Colors.white, fontSize: 20),
                     )),
               const SizedBox(
-                height: 10,
+                height: 5,
               ),
               if (!widget._isloading)
                 TextButton(

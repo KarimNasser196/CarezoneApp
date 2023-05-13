@@ -1,20 +1,18 @@
 
 import 'dart:async';
-
 import 'package:carezone/ui/disease_diagnosis_screen/disease_diagnosis_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
-
 
 class Ai extends StatefulWidget
 {
+  const Ai({super.key});
+
   @override
   State<Ai> createState()=>Aistate();
-
-
 }
 class Aistate extends State<Ai> {
+  // ignore: prefer_typing_uninitialized_variables
   var _time;
   start()
   {

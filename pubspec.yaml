@@ -18,7 +18,6 @@ dependencies:
   intl: ^0.17.0
   google_fonts: ^4.0.3
   date_picker_timeline: ^1.2.3
-  sqflite: ^2.0.0+4
   flutter_staggered_animations: ^1.0.0
   flutter_svg:
   rxdart: ^0.27.2
@@ -46,7 +45,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "images/appicon.jpeg"
+  image_path: "images/appicon.png"
 
 flutter:
   uses-material-design: true
@@ -61,7 +60,7 @@ flutter:
     - images/solid_circle_ic.svg
     - images/Lifesavers_Hand.png
     - images/Lifesavers_New_Patient.png
-    - images/appicon.jpeg
+    - images/appicon.png
     - images/appointment.jpg
     - images/19835.jpg
     - images/414.jpg
@@ -73,7 +72,6 @@ flutter:
     - images/one.jpg
     - images/two.jpg
     - images/three.jpg
-    - images/adviceData.json
     - images/logoapp.png
     - images/background.png
     - images/moreadviceone.jpg
@@ -91,6 +89,16 @@ flutter:
     - images/labels.txt
     - images/121988-ai-animation.json
     - images/100943-perulogy.json
+    - images/card1.jpg
+    - images/card2.jpg
+    - images/card3.jpg
+    - images/2222.jpg
+    - images/333jpg.jpg
+    - images/remindpicjpg.jpg
+    - images/hussien.tflite
+    - images/14562381_5500661.jpg
+
+
 
 dependency_overrides:
   firebase_core_platform_interface: 4.5.1

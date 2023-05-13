@@ -1,13 +1,11 @@
-import 'package:carezone/models/advice.dart';
 import 'package:carezone/ui/advicescreen/more_advice_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:get/get.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-
 import '../../models/card.dart';
 import '../advicescreen/advisescreen.dart';
 import '../widgets/appdrawer.dart';
@@ -15,29 +13,28 @@ import '../widgets/carousel-slider.dart';
 
 class Mainpage extends StatefulWidget {
   const Mainpage({super.key});
-
   @override
   MainpageState createState() => MainpageState();
 }
 
 class MainpageState extends State<Mainpage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
- @override
+  @override
   void initState() {
-  x();
+    x();
     super.initState();
   }
-
-String? Y;
-
-  x() async{
- final y= await FirebaseFirestore.instance.collection('users').doc( FirebaseAuth.instance.currentUser!.uid).get();
- print(y.data()!['text' ]);
- setState(() {
-   Y= y.data()!['text' ];
- });
+  String? Y;
+  x() async {
+    final y = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    print(y.data()!['text']);
+    setState(() {
+      Y = y.data()!['text'];
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +51,6 @@ String? Y;
       message = 'Good Evening';
     }
 
-    // final docRef = db.collection("users").doc();
-    // docRef.get().then(
-    //       (DocumentSnapshot doc) {
-    //     final data = doc.data() as Map<String, dynamic>;
-    //     print(data);
-    //   },
-    //   onError: (e) => print("Error getting document: $e"),
-    // );
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Colors.white,
@@ -150,7 +139,7 @@ String? Y;
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(
                                 builder: (BuildContext context) {
-                              return  MoreAdvice();
+                              return const MoreAdvice();
                             }));
                           },
                           child: Container(

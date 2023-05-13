@@ -1,9 +1,6 @@
 import 'dart:async';
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../resourses/Color_manager.dart';
 import '../resourses/Strings_manager.dart';
 import '../resourses/assets_manager.dart';
@@ -14,8 +11,6 @@ import '../resourses/values_manager.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-
- 
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();

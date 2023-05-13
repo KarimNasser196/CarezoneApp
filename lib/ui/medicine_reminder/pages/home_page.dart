@@ -15,6 +15,8 @@ import 'medicine_details/medicine_details.dart';
 import 'new_entry/new_entry_page.dart';
 
 class HomeReminder extends StatelessWidget {
+  const HomeReminder({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,14 +139,19 @@ class BottomContainer extends StatelessWidget {
           //if no data is saved
           return Container();
         } else if (snapshot.data!.isEmpty) {
-          return Center(
-            child: Text(
-              'No Medicine',
-              style: GoogleFonts.lato(
-                fontSize: 25,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
+          return
+            Column(
+            mainAxisAlignment: MainAxisAlignment.center
+            ,children: [Image.asset('images/remindpicjpg.jpg'),
+              SizedBox(height: AppSize.s14,),
+              Text(
+                'No Medicine',
+                style: GoogleFonts.lato(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w800,
+                ),)
+            ],
+
           );
         } else {
           return GridView.builder(

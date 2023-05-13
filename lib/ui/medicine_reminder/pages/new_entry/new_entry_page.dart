@@ -326,13 +326,16 @@ class _NewEntryPageState extends State<NewEntryPage> {
     var ogValue = hour;
     var minute = int.parse(medicine.startTime![2] + medicine.startTime![3]);
 
-    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+    var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
         'repeatDailyAtTime channel id', 'repeatDailyAtTime channel name',
         importance: Importance.max,
         ledColor: kOtherColor,
         ledOffMs: 1000,
         ledOnMs: 1000,
-        enableLights: true);
+        enableLights: true,
+         playSound: true,
+        sound: RawResourceAndroidNotificationSound('noti')
+    );
 
     var iOSPlatformChannelSpecifics = DarwinNotificationDetails();
 
@@ -408,7 +411,7 @@ class _SelectTimeState extends State<SelectTime> {
           child: Center(
             child: Text(
               _clicked == false
-                  ? "Select Time"
+                  ? 'Select Time'
                   : "${convertTime(_time.hour.toString())}:${convertTime(_time.minute.toString())}",
               style: getBoldStyle(color: Colors.black, fontSize: AppMargin.m18),
             ),
@@ -443,7 +446,7 @@ class _IntervalSelectionState extends State<IntervalSelection> {
           ),
           DropdownButton(
             iconEnabledColor: kOtherColor,
-            dropdownColor: kScaffoldColor,
+            dropdownColor:  kTextLightColor,
             itemHeight: 8.h,
             hint: _selected == 0
                 ? Text('Select an Interval',

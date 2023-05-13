@@ -39,7 +39,7 @@ class AdviceScreen extends StatelessWidget {
                     ? advice[0]['Image'].toString()
                     : x == 1
                         ? advice[1]['Image'].toString()
-                        : advice[2]['Image'].toString(),
+                        :x==2? advice[2]['Image'].toString(): advice[3]['Image'].toString(),
                 fit: BoxFit.cover,
               )),
             ),
@@ -50,7 +50,7 @@ class AdviceScreen extends StatelessWidget {
                       ? advice[0]['Title'].toString()
                       : x == 1
                           ? advice[1]['Title'].toString()
-                          : advice[2]['Title'].toString(),
+                          :x==2? advice[2]['Title'].toString():advice[3]['Title'].toString(),
                   textAlign: TextAlign.center,
                   style: GoogleFonts.roboto(
                       fontSize: AppSize.s25,
@@ -67,7 +67,7 @@ class AdviceScreen extends StatelessWidget {
                         ? advice[0]['description'].toString()
                         : x == 1
                             ? advice[1]['description'].toString()
-                            : advice[2]['description'].toString(),
+                          :x==2? advice[2]['description'].toString():advice[3]['description'].toString(),
                     textAlign: TextAlign.start,
                     softWrap: true,
                     style: GoogleFonts.roboto(
