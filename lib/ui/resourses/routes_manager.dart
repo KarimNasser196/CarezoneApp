@@ -1,8 +1,4 @@
-
-import 'package:carezone/ui/advicescreen/advisescreen.dart';
 import 'package:flutter/material.dart';
-
-
 
 import '../auth/authscreen.dart';
 
@@ -32,11 +28,11 @@ class RouteGenerator {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: ((_) => const OnBoardingView()));
       case Routes.mainRoute:
-        return MaterialPageRoute(builder: ((_) =>  const Mainpage()));
+        return MaterialPageRoute(builder: ((_) => const Mainpage()));
       case Routes.getstarted:
         return MaterialPageRoute(builder: ((_) => const GetStart()));
       case Routes.login:
-        return MaterialPageRoute(builder: ((_) =>  const Authscreen()));
+        return MaterialPageRoute(builder: ((_) => const Authscreen()));
       // case Routes.advicescreen:
       //   return MaterialPageRoute(builder: ((_) =>  AdviceScreen()));
       default:

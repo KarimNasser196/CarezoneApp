@@ -28,7 +28,7 @@ class _MainReminderScreen extends State<MainReminderScreen> {
     return Provider<GlobalBloc>.value(
       value: globalBloc!,
       child: Sizer(builder: (context, orientation, deviceType) {
-        return MaterialApp(
+        return const MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Pill Reminder',
             //theme customization

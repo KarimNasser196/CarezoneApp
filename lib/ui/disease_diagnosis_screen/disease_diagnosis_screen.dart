@@ -1,14 +1,14 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:carezone/ui/resourses/Color_manager.dart';
 import 'package:carezone/ui/resourses/styles_manager.dart';
 import 'package:carezone/ui/resourses/values_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
-import 'package:tflite/tflite.dart';
+import 'package:http/http.dart' as http;
 
 class DiseaseDiagosis extends StatefulWidget {
   const DiseaseDiagosis({super.key});
@@ -17,50 +17,47 @@ class DiseaseDiagosis extends StatefulWidget {
 }
 
 class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
-  @override
-  void initState() {
-    loadMLModel();
-    super.initState();
-  }
-
-  File? image;
-  List? _output;
-  bool _loading = true;
-  Future pickImage(ImageSource src) async {
-    try {
-      final image = await ImagePicker().pickImage(source: src);
-      if (image == null) return;
-      final imageTemp = File(image.path);
-      setState(() => this.image = imageTemp);
-
-      await runModelOnImage(File(image.path));
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
+  String? result;
+  final picker = ImagePicker();
+  File? img;
+  var url = 'https://hamada-production.up.railway.app/predictApi';
+  Future pickImage() async {
+    // ignore: deprecated_member_use
+    PickedFile? pickedFile = await picker.getImage(
+      source: ImageSource.gallery,
+    );
+    if (pickedFile == null) {
+      return;
+    } else {
+      setState(() {
+        img = File(pickedFile.path);
+        result = null;
+      });
     }
   }
 
-  runModelOnImage(File image) async {
-    var output = await Tflite.runModelOnImage(
-        path: image.path,
-        numResults: 2,
-        imageMean: 127.5,
-        imageStd: 127.5,
-        threshold: 0.5);
+  upload() async {
     setState(() {
-      _output = output!;
-      _loading = false;
+      // Show the progress indicator
+      result = 'waiting...';
     });
-  }
+    final request = http.MultipartRequest('POST', Uri.parse(url));
+    final header = {'Content_type': 'multipart/form-data'};
+    request.files.add(http.MultipartFile(
+        'fileup', img!.readAsBytes().asStream(), img!.lengthSync(),
+        filename: img!.path.split('/').last));
+    request.headers.addAll(header);
+    final myRequest = await request.send();
+    http.Response res = await http.Response.fromStream(myRequest);
+    if (myRequest.statusCode == 200) {
+      final resJson = jsonDecode(res.body);
+      print('response here: $resJson');
+      result = resJson['prediction'];
+    } else {
+      print('Error ${myRequest.statusCode}');
+    }
 
-  loadMLModel() async {
-    await Tflite.loadModel(
-        model: 'images/model_unquant.tflite', labels: 'images/labels.txt');
-  }
-
-  @override
-  void dispose() {
-    Tflite.close();
-    super.dispose();
+    setState(() {});
   }
 
   @override
@@ -91,7 +88,7 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
                 width: MediaQuery.of(context).size.width,
                 height: 170,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
                       "Let's start the diagnosis, upload the x-ray",
@@ -101,65 +98,63 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        OutlinedButton.icon(
-                            icon: Icon(
-                              Icons.image_outlined,
-                              size: 35,
-                              color: ColorManager.black,
-                            ),
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all(
-                                    const StadiumBorder()),
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.teal)),
-                            // color: Colors.blue,
-                            label: const Text('Gallery',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal)),
-                            onPressed: () {
-                              pickImage(ImageSource.gallery);
-                            }),
-                        OutlinedButton.icon(
-                            icon: Icon(
-                              Icons.camera,
-                              size: 35,
-                              color: ColorManager.black,
-                            ),
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all(
-                                    const StadiumBorder()),
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.teal)),
-                            // color: Colors.blue,
-                            label: const Text('Camera',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal)),
-                            onPressed: () {
-                              pickImage(ImageSource.camera);
-                            }),
-                      ],
+                    OutlinedButton.icon(
+                        icon: Icon(
+                          Icons.image_outlined,
+                          size: 35,
+                          color: ColorManager.darkPrimary,
+                        ),
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                const StadiumBorder()),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.teal)),
+                        // color: Colors.blue,
+                        label: const Text('Pick image',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal)),
+                        onPressed: () async {
+                          await pickImage();
+                        }),
+                    Visibility(
+                      visible: img != null ? true : false,
+                      child: OutlinedButton.icon(
+                          icon: Icon(
+                            Icons.upload_file,
+                            size: 40,
+                            color: Colors.red[300],
+                          ),
+                          style: ButtonStyle(
+                              shape: MaterialStateProperty.all(
+                                  const StadiumBorder()),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.teal)),
+                          // color: Colors.blue,
+                          label: const Text('upload to see result',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal)),
+                          onPressed: () async {
+                            await upload();
+                          }),
                     ),
                   ],
                 )),
-            _loading
+            img == null
                 ? Center(child: Lottie.asset('images/100943-perulogy.json'))
-                : Image.file(image!),
+                : Image.file(img!),
             const SizedBox(
               height: AppSize.s20,
             ),
-            _output == null
+            result == null
                 ? const Text('')
                 : Container(
                     color: Colors.grey[200],
                     child: Text(
-                      "${_output![0]["label"]}",
+                      '$result',
                       style: getRegularStyle(
                           fontSize: AppSize.s32, color: Colors.black87),
                     )),
