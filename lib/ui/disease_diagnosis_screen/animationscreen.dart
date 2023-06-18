@@ -1,7 +1,9 @@
 import 'dart:async';
-import 'package:carezone/ui/disease_diagnosis_screen/disease_diagnosis_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+
+import 'package:carezone/ui/disease_diagnosis_screen/disease_diagnosis_screen.dart';
 
 class Ai extends StatefulWidget {
   const Ai({super.key});
