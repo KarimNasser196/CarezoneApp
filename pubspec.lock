@@ -145,14 +145,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-  custom_flutter_painter:
-    dependency: "direct main"
-    description:
-      name: custom_flutter_painter
-      sha256: "081c754e9f22844e512fadfde18ac10f315c174586537b707626d4335407ef5f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   date_picker_timeline:
     dependency: "direct main"
     description:
@@ -765,14 +757,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
-  tflite:
-    dependency: "direct main"
-    description:
-      name: tflite
-      sha256: "661f8942a0e8ca05fedf554cc6f9cc95f526d0e4588d1665e0eb4d29e25e69b1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.2"
   timezone:
     dependency: transitive
     description:
