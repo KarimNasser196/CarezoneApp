@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../auth/authscreen.dart';
-
 import '../main/main._view.dart';
 import '../onboarding/onboarding.dart';
-
 import '../splash/splash_view.dart';
 import '../start/get_start.dart';
 import 'Strings_manager.dart';
@@ -33,8 +30,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: ((_) => const GetStart()));
       case Routes.login:
         return MaterialPageRoute(builder: ((_) => const Authscreen()));
-      // case Routes.advicescreen:
-      //   return MaterialPageRoute(builder: ((_) =>  AdviceScreen()));
       default:
         return unDefinedRoute();
     }

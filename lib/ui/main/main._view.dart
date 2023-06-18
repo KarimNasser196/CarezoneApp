@@ -2,8 +2,6 @@ import 'package:carezone/ui/advicescreen/more_advice_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../models/card.dart';
@@ -24,6 +22,7 @@ class MainpageState extends State<Mainpage> {
     x();
     super.initState();
   }
+
   String? Y;
   x() async {
     final y = await FirebaseFirestore.instance
@@ -45,7 +44,7 @@ class MainpageState extends State<Mainpage> {
 
     if (hour >= 5 && hour < 12) {
       message = 'Good Morning';
-    } else if (hour >= 12 && hour <= 17) {
+    } else if (hour >= 12 && hour <= 18) {
       message = 'Good Afternoon';
     } else {
       message = 'Good Evening';

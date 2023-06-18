@@ -136,7 +136,7 @@ class _AuthFormState extends State<AuthForm> {
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => const RestPasswordScreen());
+                        Get.to(() => const ResetPasswordScreen());
                       },
                       child: const Text(
                         'Forgot Password?',

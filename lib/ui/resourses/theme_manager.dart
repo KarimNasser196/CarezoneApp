@@ -7,12 +7,12 @@ import 'font_manager.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData(
+      // useMaterial3: true,
+
 //main color
       primaryColor: ColorManager.primary,
-      primaryColorLight: ColorManager.lightPrimary,
-      primaryColorDark: ColorManager.darkPrimary,
       disabledColor: ColorManager.grey1,
-      splashColor: ColorManager.lightPrimary, //ripple effect
+      splashColor: ColorManager.lightPrimary,
       // ignore: deprecated_member_use
       backgroundColor: ColorManager.white,
 
@@ -22,7 +22,7 @@ ThemeData getApplicationTheme() {
           shadowColor: ColorManager.grey,
           elevation: AppSize.s4),
 
-//app bar theme
+//appbar theme
       appBarTheme: AppBarTheme(
           centerTitle: true,
           color: ColorManager.white,

@@ -1,12 +1,12 @@
-import 'package:carezone/ui/disease_diagnosis_screen/animationscreen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../models/banner.dart';
 import '../medicine_reminder/main.dart';
+import '../disease_diagnosis_screen/animationscreen.dart';
 
 class Carouselslider extends StatelessWidget {
-  const Carouselslider({super.key});
+  const Carouselslider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,43 +16,50 @@ class Carouselslider extends StatelessWidget {
       child: CarouselSlider.builder(
         itemCount: bannerCards.length,
         itemBuilder: (context, index, realIndex) {
-          return Container(
-            alignment: Alignment.centerLeft,
-            width: MediaQuery.of(context).size.width,
-            height: 140,
-            margin: const EdgeInsets.only(left: 0, right: 0, bottom: 20),
-            padding: const EdgeInsets.only(left: 0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              gradient: LinearGradient(
-                stops: const [0.3, 0.7],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: bannerCards[index].cardBackground,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    if (index == 0) {
+                      return const MainReminderScreen();
+                    } else {
+                      return const Ai();
+                    }
+                  },
+                ),
+              );
+            },
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: LinearGradient(
+                  stops: const [0.3, 0.7],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: bannerCards[index].cardBackground,
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
               ),
-            ),
-            child: GestureDetector(
-              onTap: () {
-                index == 0
-                    ? Navigator.push(context,
-                        MaterialPageRoute(builder: (BuildContext context) {
-                        return const MainReminderScreen();
-                      }))
-                    : Navigator.push(context,
-                        MaterialPageRoute(builder: (BuildContext context) {
-                        return const Ai();
-                      }));
-              },
               child: Stack(
                 children: [
                   Image.asset(
                     bannerCards[index].image,
-                    //'assets/414.jpg',
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 8, right: 5),
-                    alignment: Alignment.topRight,
+                  Positioned(
+                    top: 8,
+                    right: 5,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -65,11 +72,12 @@ class Carouselslider extends StatelessWidget {
                             fontSize: 15,
                           ),
                         ),
+                        const SizedBox(width: 5),
                         Icon(
                           Icons.chevron_right_rounded,
                           color: Colors.lightBlue[900],
                           size: 20,
-                        )
+                        ),
                       ],
                     ),
                   ),

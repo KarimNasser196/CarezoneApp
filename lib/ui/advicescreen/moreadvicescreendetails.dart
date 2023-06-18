@@ -1,96 +1,74 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:carezone/models/advice.dart';
-import 'package:carezone/ui/resourses/values_manager.dart';
-
+import '../../models/advice.dart';
 import '../resourses/Color_manager.dart';
+import '../resourses/values_manager.dart';
 
-// ignore: must_be_immutable
 class MoreAdviceScreenDetails extends StatelessWidget {
-  int x;
-
-  MoreAdviceScreenDetails({
-    Key? key,
-    required this.x,
-  }) : super(key: key);
+  final int x;
+  const MoreAdviceScreenDetails({Key? key, required this.x}) : super(key: key);
+  String get adviceTitle => moreadvice[x]['Title'].toString();
+  String get adviceDescription => moreadvice[x]['description'].toString();
+  String get adviceImage => moreadvice[x]['Image'].toString();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              leading: IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  size: 26,
-                  color: ColorManager.black,
-                ),
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: 26,
+                color: ColorManager.black,
               ),
-              backgroundColor: Colors.white,
-              expandedHeight: 280,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                  background: Image.asset(
-                x == 0
-                    ? moreadvice[0]['Image'].toString()
-                    : x == 1
-                        ? moreadvice[1]['Image'].toString()
-                        : x == 2
-                            ? moreadvice[2]['Image'].toString()
-                            : x == 3
-                                ? moreadvice[3]['Image'].toString()
-                                : moreadvice[4]['Image'].toString(),
-                fit: BoxFit.cover,
-              )),
             ),
-            SliverList(
-                delegate: SliverChildListDelegate([
-              Text(
-                  x == 0
-                      ? moreadvice[0]['Title'].toString()
-                      : x == 1
-                          ? moreadvice[1]['Title'].toString()
-                          : x == 2
-                              ? moreadvice[2]['Title'].toString()
-                              : x == 3
-                                  ? moreadvice[3]['Title'].toString()
-                                  : moreadvice[4]['Title'].toString(),
+            backgroundColor: Colors.white,
+            expandedHeight: 280,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.asset(
+                adviceImage,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                Text(
+                  adviceTitle,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.roboto(
-                      fontSize: AppSize.s25,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold)),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: Text(
-                    x == 0
-                        ? moreadvice[0]['description'].toString()
-                        : x == 1
-                            ? moreadvice[1]['description'].toString()
-                            : x == 2
-                                ? moreadvice[2]['description'].toString()
-                                : x == 3
-                                    ? moreadvice[3]['description'].toString()
-                                    : moreadvice[4]['description'].toString(),
+                    fontSize: AppSize.s25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    adviceDescription,
                     textAlign: TextAlign.start,
-                    softWrap: true,
                     style: GoogleFonts.roboto(
-                        fontSize: AppSize.s18, color: Colors.grey[800])),
-              ),
-              const SizedBox(
-                height: 180,
-              ),
-            ]))
-          ],
-        ));
+                      fontSize: AppSize.s18,
+                      color: Colors.grey[800],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

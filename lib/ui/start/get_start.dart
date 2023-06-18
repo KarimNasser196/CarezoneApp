@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../resourses/Color_manager.dart';
 import '../resourses/Strings_manager.dart';
 import '../resourses/assets_manager.dart';
@@ -9,7 +8,6 @@ import '../resourses/values_manager.dart';
 
 class GetStart extends StatefulWidget {
   const GetStart({super.key});
-
   @override
   State<StatefulWidget> createState() {
     return GetStartState();

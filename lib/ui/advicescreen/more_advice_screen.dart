@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:carezone/ui/resourses/styles_manager.dart';
 import 'package:carezone/ui/resourses/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +5,7 @@ import 'package:carezone/models/advice.dart';
 import 'package:carezone/ui/advicescreen/moreadvicescreendetails.dart';
 import 'package:get/get.dart';
 import '../resourses/Color_manager.dart';
-// ignore: must_be_immutable
+
 class MoreAdvice extends StatelessWidget {
   const MoreAdvice({super.key});
 
@@ -24,8 +23,7 @@ class MoreAdvice extends StatelessWidget {
             ),
           ),
           elevation: 0,
-          backgroundColor: Colors.grey[100
-          ],
+          backgroundColor: Colors.grey[100],
         ),
         body: Container(
           color: Colors.grey[100],

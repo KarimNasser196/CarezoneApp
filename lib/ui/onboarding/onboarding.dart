@@ -1,9 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../resourses/Color_manager.dart';
 import '../resourses/Strings_manager.dart';
 import '../resourses/assets_manager.dart';
@@ -14,13 +11,11 @@ import '../resourses/values_manager.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);
-
   @override
-  // ignore: library_private_types_in_public_api
-  _OnBoardingViewState createState() => _OnBoardingViewState();
+  OnBoardingViewState createState() => OnBoardingViewState();
 }
 
-class _OnBoardingViewState extends State<OnBoardingView> {
+class OnBoardingViewState extends State<OnBoardingView> {
   late final List<SliderObject> _list = _getSliderData();
   final PageController _pageController = PageController();
   int _currentIndex = 0;
@@ -105,6 +100,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               },
             ),
           ),
+          //navigator dots
           Row(
             children: [
               for (int i = 0; i < _list.length; i++)
@@ -194,8 +190,6 @@ class OnBoardingPage extends StatelessWidget {
 
 class SliderObject {
   String title;
-
   String image;
-
   SliderObject(this.title, this.image);
 }

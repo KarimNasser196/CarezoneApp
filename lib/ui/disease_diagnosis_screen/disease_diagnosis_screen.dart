@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:carezone/ui/resourses/Color_manager.dart';
-import 'package:carezone/ui/resourses/styles_manager.dart';
 import 'package:carezone/ui/resourses/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -98,66 +97,108 @@ class _DiseaseDiagosisState extends State<DiseaseDiagosis> {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    OutlinedButton.icon(
+                    ElevatedButton.icon(
                         icon: Icon(
                           Icons.image_outlined,
-                          size: 35,
+                          size: 26,
                           color: ColorManager.darkPrimary,
                         ),
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                const StadiumBorder()),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.teal)),
-                        // color: Colors.blue,
-                        label: const Text('Pick image',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal)),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.teal,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          elevation: 3,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 24,
+                          ),
+                        ),
+                        label: const Text(
+                          'Pick image',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
                         onPressed: () async {
                           await pickImage();
                         }),
+                    const SizedBox(
+                      height: 3,
+                    ),
                     Visibility(
                       visible: img != null ? true : false,
-                      child: OutlinedButton.icon(
-                          icon: Icon(
-                            Icons.upload_file,
-                            size: 40,
-                            color: Colors.red[300],
+                      child: ElevatedButton.icon(
+                        icon: const Icon(
+                          Icons.upload_file,
+                          size: 28,
+                          color: Colors.white,
+                        ),
+                        label: const Text(
+                          'Upload to see result',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.5,
                           ),
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                  const StadiumBorder()),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.teal)),
-                          // color: Colors.blue,
-                          label: const Text('upload to see result',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal)),
-                          onPressed: () async {
-                            await upload();
-                          }),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.teal,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          elevation: 3,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 24,
+                          ),
+                        ),
+                        onPressed: () async {
+                          await upload();
+                        },
+                      ),
                     ),
                   ],
                 )),
+            const SizedBox(
+              height: 7,
+            ),
             img == null
                 ? Center(child: Lottie.asset('images/100943-perulogy.json'))
                 : Image.file(img!),
             const SizedBox(
-              height: AppSize.s20,
+              height: AppSize.s16,
             ),
             result == null
                 ? const Text('')
                 : Container(
-                    color: Colors.grey[200],
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 16,
+                      horizontal: 24,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
                     child: Text(
-                      '$result',
-                      style: getRegularStyle(
-                          fontSize: AppSize.s32, color: Colors.black87),
-                    )),
+                      result ?? '',
+                      style: const TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
           ],
         ),
       ),
