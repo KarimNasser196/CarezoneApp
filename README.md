@@ -1,5 +1,6 @@
 
 # CareZone app
 ======
-Graduction project
+Medical application to detect brain tumors
+
 
