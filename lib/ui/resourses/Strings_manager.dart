@@ -1,3 +1,4 @@
+// ignore: file_names
 class AppStrings {
   static const noRouteFound = 'No Route Found';
   static const onBoardindTitle1 = 'Get a Preliminary Diagnosis By X-RAY';

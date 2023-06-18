@@ -44,7 +44,7 @@ class _MedicineDetailsState extends State<MedicineDetails> {
           children: [
             MainSection(medicine: widget.medicine),
             ExtendedSection(medicine: widget.medicine),
-            Spacer(),
+            const Spacer(),
             SizedBox(
               width: 100.w,
               height: 7.h,
@@ -75,7 +75,7 @@ class _MedicineDetailsState extends State<MedicineDetails> {
   }
   //lets delete a medicine from memory
 
-  openAlertBox(BuildContext context, GlobalBloc _globalBloc) {
+  openAlertBox(BuildContext context, GlobalBloc globalBloc) {
     return showDialog(
       context: context,
       builder: (context) {
@@ -88,7 +88,7 @@ class _MedicineDetailsState extends State<MedicineDetails> {
             ),
           ),
           contentPadding: EdgeInsets.only(top: 1.h),
-          title: Text(
+          title: const Text(
             'Delete This Reminder?',
             textAlign: TextAlign.center,
           ),
@@ -97,17 +97,17 @@ class _MedicineDetailsState extends State<MedicineDetails> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(
+              child: const Text(
                 'Cancel',
               ),
             ),
             TextButton(
               onPressed: () {
                 //global block to delete medicine,later
-                _globalBloc.removeMedicine(widget.medicine);
+                globalBloc.removeMedicine(widget.medicine);
                 Navigator.popUntil(context, ModalRoute.withName('/'));
               },
-              child: Text(
+              child: const Text(
                 'OK',
               ),
             ),
@@ -127,6 +127,7 @@ class MainSection extends StatelessWidget {
         tag: medicine!.medicineName! + medicine!.medicineType!,
         child: SvgPicture.asset(
           'images/bottle.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),
@@ -136,6 +137,7 @@ class MainSection extends StatelessWidget {
         tag: medicine!.medicineName! + medicine!.medicineType!,
         child: SvgPicture.asset(
           'images/pill.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),
@@ -145,6 +147,7 @@ class MainSection extends StatelessWidget {
         tag: medicine!.medicineName! + medicine!.medicineType!,
         child: SvgPicture.asset(
           'images/syringe.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),
@@ -154,6 +157,7 @@ class MainSection extends StatelessWidget {
         tag: medicine!.medicineName! + medicine!.medicineType!,
         child: SvgPicture.asset(
           'images/tablet.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),

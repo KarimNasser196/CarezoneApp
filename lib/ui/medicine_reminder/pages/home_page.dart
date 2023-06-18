@@ -50,8 +50,8 @@ class HomeReminder extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.teal,
-        icon: Icon(Icons.add),
-        label: Text('Add Reminder'),
+        icon: const Icon(Icons.add),
+        label: const Text('Add Reminder'),
         onPressed: () {
           // go to new entry page
           Navigator.push(
@@ -143,7 +143,7 @@ class BottomContainer extends StatelessWidget {
             Column(
             mainAxisAlignment: MainAxisAlignment.center
             ,children: [Image.asset('images/remindpicjpg.jpg'),
-              SizedBox(height: AppSize.s14,),
+              const SizedBox(height: AppSize.s14,),
               Text(
                 'No Medicine',
                 style: GoogleFonts.lato(
@@ -186,6 +186,7 @@ class MedicineCard extends StatelessWidget {
         tag: medicine.medicineName! + medicine.medicineType!,
         child: SvgPicture.asset(
           'images/bottle.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),
@@ -195,6 +196,7 @@ class MedicineCard extends StatelessWidget {
         tag: medicine.medicineName! + medicine.medicineType!,
         child: SvgPicture.asset(
           'images/pill.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),
@@ -204,6 +206,7 @@ class MedicineCard extends StatelessWidget {
         tag: medicine.medicineName! + medicine.medicineType!,
         child: SvgPicture.asset(
           'images/syringe.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),
@@ -213,6 +216,7 @@ class MedicineCard extends StatelessWidget {
         tag: medicine.medicineName! + medicine.medicineType!,
         child: SvgPicture.asset(
           'images/tablet.svg',
+          // ignore: deprecated_member_use
           color: kOtherColor,
           height: 7.h,
         ),
@@ -288,8 +292,8 @@ class MedicineCard extends StatelessWidget {
             //time interval data with condition, later
             Text(
               medicine.interval == 1
-                  ? "Every ${medicine.interval} hour"
-                  : "Every ${medicine.interval} hour",
+                  ? 'Every ${medicine.interval} hour'
+                  : 'Every ${medicine.interval} hour',
               overflow: TextOverflow.fade,
               textAlign: TextAlign.start,
               style:

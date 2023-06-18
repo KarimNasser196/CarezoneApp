@@ -186,18 +186,18 @@ class _NewEntryPageState extends State<NewEntryPage> {
                       int? dosage;
 
                       //medicineName
-                      if (nameController.text == "") {
+                      if (nameController.text == '') {
                         _newEntryBloc.submitError(EntryError.nameNull);
                         return;
                       }
-                      if (nameController.text != "") {
+                      if (nameController.text != '') {
                         medicineName = nameController.text;
                       }
                       //dosage
-                      if (dosageController.text == "") {
+                      if (dosageController.text == '') {
                         dosage = 0;
                       }
-                      if (dosageController.text != "") {
+                      if (dosageController.text != '') {
                         dosage = int.parse(dosageController.text);
                       }
                       for (var medicine in globalBloc.medicineList$!.value) {
@@ -246,7 +246,7 @@ class _NewEntryPageState extends State<NewEntryPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeReminder()));
+                              builder: (context) => const HomeReminder()));
                     },
                   ),
                 ),
@@ -266,10 +266,10 @@ class _NewEntryPageState extends State<NewEntryPage> {
           break;
 
         case EntryError.nameDuplicate:
-          displayError("Medicine name already exists");
+          displayError('Medicine name already exists');
           break;
         case EntryError.dosage:
-          displayError("Please enter the dosage required");
+          displayError('Please enter the dosage required');
           break;
         case EntryError.interval:
           displayError("Please select the reminder's interval");
@@ -318,7 +318,7 @@ class _NewEntryPageState extends State<NewEntryPage> {
       debugPrint('notification payload: $payload');
     }
     await Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomeReminder()));
+        context, MaterialPageRoute(builder: (context) => const HomeReminder()));
   }
 
   Future<void> scheduleNotification(Medicine medicine) async {
@@ -337,7 +337,7 @@ class _NewEntryPageState extends State<NewEntryPage> {
         sound: RawResourceAndroidNotificationSound('noti')
     );
 
-    var iOSPlatformChannelSpecifics = DarwinNotificationDetails();
+    var iOSPlatformChannelSpecifics = const DarwinNotificationDetails();
 
     var platformChannelSpecifics = NotificationDetails(
         android: androidPlatformChannelSpecifics,
@@ -412,7 +412,7 @@ class _SelectTimeState extends State<SelectTime> {
             child: Text(
               _clicked == false
                   ? 'Select Time'
-                  : "${convertTime(_time.hour.toString())}:${convertTime(_time.minute.toString())}",
+                  : '${convertTime(_time.hour.toString())}:${convertTime(_time.minute.toString())}',
               style: getBoldStyle(color: Colors.black, fontSize: AppMargin.m18),
             ),
           ),
@@ -474,7 +474,7 @@ class _IntervalSelectionState extends State<IntervalSelection> {
             },
           ),
           Text(
-            _selected == 1 ? " hour" : " hours",
+            _selected == 1 ? ' hour' : ' hours',
           ),
         ],
       ),
@@ -520,6 +520,7 @@ class MedicineTypeColumn extends StatelessWidget {
                 child: SvgPicture.asset(
                   iconValue,
                   height: 7.h,
+                  // ignore: deprecated_member_use
                   color: isSelected ? Colors.white : kOtherColor,
                 ),
               ),
@@ -563,7 +564,7 @@ class PanelTitle extends StatelessWidget {
                 text: title,
                 style: getRegularStyle(fontSize: 16, color: Colors.black87)),
             TextSpan(
-              text: isRequired ? " *" : "",
+              text: isRequired ? ' *' : '',
             ),
           ],
         ),

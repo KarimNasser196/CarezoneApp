@@ -21,7 +21,7 @@ class Aistate extends State<Ai> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => DiseaseDiagosis(),
+        builder: (context) => const DiseaseDiagosis(),
       ),
     );
   }

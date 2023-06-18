@@ -13,6 +13,7 @@ ThemeData getApplicationTheme() {
       primaryColorDark: ColorManager.darkPrimary,
       disabledColor: ColorManager.grey1,
       splashColor: ColorManager.lightPrimary, //ripple effect
+      // ignore: deprecated_member_use
       backgroundColor: ColorManager.white,
 
 //cardview theme
